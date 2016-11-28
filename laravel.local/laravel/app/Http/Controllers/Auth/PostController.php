@@ -1,6 +1,6 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Request;
+use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
@@ -10,7 +10,7 @@ class PostController extends Controller {
 
     public function index()
     {
-        $posts = Post::all();
+        $posts = Post::latest()->get();
         return view ('post.index', ['post' => $posts]);
     }
 
